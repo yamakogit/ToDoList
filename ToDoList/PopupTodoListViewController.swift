@@ -15,6 +15,7 @@ class PopupTodoListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     //警告アラート準備
     var alertController: UIAlertController!
     
@@ -24,6 +25,7 @@ class PopupTodoListViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true)
     }
+    
     
     
     var searchTitle :String = ""
@@ -78,7 +80,7 @@ class PopupTodoListViewController: UIViewController {
             self.saveFilterArray.set(forTitleFilter,forKey: "filterArray")
             
             let toDoListVC = storyboard?.instantiateInitialViewController() as? TodoListViewController
-            toDoListVC?.tableView.reloadData()
+            toDoListVC?.tableView.reloadData()    //ここにも書いてみましたが、reloadできませんでした。
             
         })
         
@@ -135,10 +137,10 @@ class PopupTodoListViewController: UIViewController {
     }
     
     @IBAction func close1popup() {
-            alert(title: "エラー",message: "エラーが発生しました。\n一度アプリを再起動してください。")
+            alert(title: "検索結果",message: "検索結果をセルに表示しました")
         dismiss(animated: false, completion: nil)
         let toDoListVC = storyboard?.instantiateInitialViewController() as? TodoListViewController
-        toDoListVC?.tableView.reloadData()
+        toDoListVC?.tableView.reloadData()    //ここに書いてもらいましたが、reloadできませんでした。
     }
     
     
